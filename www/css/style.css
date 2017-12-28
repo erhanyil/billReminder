@@ -41,16 +41,17 @@ time.icon strong
   top: 0;
   padding: 0px 0;
   color: #fff;
-  background-color: #fd9f1b;
+  background-color: red;
+  /*background-color: #fd9f1b;*/
   border-bottom: 0px dashed #f37302;
-  box-shadow: 0 2px 0 #fd9f1b;
+  box-shadow: 0 2px 0 red;
 }
 
 time.icon em
 {
   position: absolute;
   bottom: 28.3em;
-  color: #fd9f1b;
+  color: red;
 }
 
 time.icon span

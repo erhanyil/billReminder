@@ -1,32 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $timeout) {
 
-  $scope.loginData = {};
-
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
+.controller('HomeCtrl', function($scope) {
+
   $scope.playlists = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
@@ -35,7 +14,28 @@ angular.module('starter.controllers', [])
     { title: 'Rap', id: 5 },
     { title: 'Cowbell', id: 6 }
   ];
+
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+.controller('ReminderController', function($scope, $stateParams) {})
+
+.controller('SettingsCtrl', function($scope, $stateParams) {})
+
+.controller('modalController', function($scope, $stateParams) {
+
+  $scope.modalData = {};
+
+  $scope.doLogin = function() {
+    console.log($scope.modalData);
+  };
+
+  $scope.doRegister = function () {
+    console.log($scope.modalData);
+  }
+
+  $scope.newReminder = function () {
+    console.log($scope.modalData);
+  }
+
+})
+;
