@@ -74,6 +74,10 @@ angular.module('starter', ['ionic', 'starter.controllers','ion-datetime-picker']
     var currentModal = "";
 
     this.open = function (template) {
+     if (currentModal != ""){
+       currentModal.hide();
+       currentModal = "";
+     }
      $ionicModal.fromTemplateUrl('modals/'+template+'.html', { scope: $rootScope }).then(function(modal) {
         currentModal = modal;
         currentModal.show();

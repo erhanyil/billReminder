@@ -73,6 +73,11 @@ time.icon span
 	text-align: right;
 }
 
-input[type=text],input[type=date], {
+input[type=text] {
 	text-align: right;
+}
+
+.billDate {
+	text-align: right;
+	float: right;
 }
