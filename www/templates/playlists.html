@@ -1,0 +1,17 @@
+<ion-view view-title="Bill Reminder">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item item-avatar" ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+      	<time datetime="2014-09-20" class="icon">
+  <!--em>Saturday</em-->
+  <strong>Sep</strong>
+  <span>20</span>
+</time>
+      	<h2>{{playlist.title}}</h2>
+      	<p>{{playlist.title}}</p>
+      	<ion-option-button class="button-positive" side="right" ng-click="share(item)">Share</ion-option-button>
+    	<ion-option-button class="button-calm" side="left" ng-click="edit(item)">Edit</ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
