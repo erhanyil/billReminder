@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','ion-datetime-picker'])
 
 .run(function($ionicPlatform, $rootScope, Modal ,Auth) {
 

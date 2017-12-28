@@ -40,6 +40,11 @@
             <option>Red</option>
           </select>
         </label>
+
+            <div class="item item-icon-left" ion-datetime-picker ng-model="datetimeValue">
+                Bill Date
+                <label>{{datetimeValue| date: "yyyy-MM-dd H:mm"}}</label>
+            </div>
         <label class="item">
           <button class="button button-block button-positive" ng-click="doLogin()">Save</button>
         </label>
