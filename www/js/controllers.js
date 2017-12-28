@@ -4,16 +4,16 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('HomeCtrl', function($scope) {
+.controller('HomeCtrl', function($scope,API) {
 
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+  $scope.playlists = { title: 'Reggae', id: 1 };
+
+  $scope.getBills = function(){
+    API.getBills($scope.playlists).then(function(result) {
+      console.log("ctrl",result);
+    });
+  }
+$scope.getBills();
 
 })
 

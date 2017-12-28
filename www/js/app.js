@@ -1,5 +1,8 @@
 angular.module('starter', ['ionic', 'starter.controllers','ion-datetime-picker'])
 
+.constant('API_URL', 'http://localhost/billReminder/server/billReminderAPI.php')
+//.constant('API_URL', 'http://stdiosoft.com/toDo/www/')
+
 .run(function($ionicPlatform, $rootScope, Modal ,Auth) {
 
   $rootScope.Modal = Modal;
@@ -118,4 +121,30 @@ angular.module('starter', ['ionic', 'starter.controllers','ion-datetime-picker']
 
   };
 })
+
+.factory('API', function($http, $window , API_URL) {
+
+  var response = {}, request = [];
+
+  return {
+
+    createNewItem: function(data){
+        request.push({data:data,key:'createNewItem'});
+        return $http.post(API_URL, request).success(function(response){
+          console.log("createNewItem",response);
+        }).error(function(error) {
+          console.log("error",error);
+        });
+    },
+    getBills: function(data) {
+        request.push({data:data,key:'getBills'});
+        return $http.post(API_URL, request).success(function(response){
+          console.log("getBills",response);
+        }).error(function(error) {
+          console.log("error",error);
+        });
+    }
+    
+  };
+});
 ;

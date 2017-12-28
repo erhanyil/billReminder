@@ -118,4 +118,60 @@ angular.module('starter', ['ionic', 'starter.controllers','ion-datetime-picker']
 
   };
 })
+
+
+.factory('Server', function($http, Notification, Handler, $window,Session) {
+
+  var main_API_URL_LOCAL = "http://localhost/toDo/www/";
+  var main_API_URL = "http://stdiosoft.com/toDo/www/";
+
+  var createNewItem_API_URL = main_API_URL+'php/createNewItem.php';
+  var createNewUser_API_URL = main_API_URL+'php/createNewUser.php';
+  var getItems_API_URL = main_API_URL+'php/getItems.php';
+  var deleteItem_API_URL = main_API_URL+'php/deleteItem.php';
+  var editItem_API_URL = main_API_URL+'php/editItem.php';
+  var login_API_URL = main_API_URL+'php/login.php';
+  var forRabbit_API_URL = main_API_URL+'php/forRabbit.php';
+
+  var _userLoginDataService;
+  var _data = {};
+  return {
+
+    createNewItem: function(data){
+        data.userID = -1;
+        if(Session.getSession().isAuthenticated) {
+          data.userID = Session.getSession().userID;
+        }
+        data.notification = data.notification ? 0 : 1;
+        return $http.post(createNewItem_API_URL, data).success(function(response){
+          if(response == 0){
+            Handler.successHandler(response,"Listeye Başarıyla Eklendi");
+          }else{
+            Handler.errorHandler(response);
+          }
+        }).error(function(error) {
+            Handler.errorHandler(error);
+        });
+    },
+
+    getItems: function(userID) {
+        _data.userID = userID;
+        _responseData = [];
+        return $http.post(getItems_API_URL, _data).success(function(response){
+          if(response != '1' && response != undefined && response != null){
+            for(var i=0;i<response.userItemData.length;i++){
+              response.userItemData[i].notification = response.userItemData[i].notification == 0 ? true : false;
+            }
+             return _responseData = response.userItemData;
+          }else{
+            Handler.errorHandler("Error:" +response);
+          }
+        }).error(function(error) {
+            Handler.errorHandler(error);
+        });
+        return _responseData;
+    }
+    
+  };
+});
 ;
