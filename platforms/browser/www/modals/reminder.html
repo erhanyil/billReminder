@@ -1,6 +1,6 @@
 <ion-modal-view>
   <ion-header-bar>
-    <h1 class="title">Login</h1>
+    <h1 class="title">New Reminder Item</h1>
     <div class="buttons">
       <button class="button button-clear" ng-click="Modal.close()" style="color:#97999e">Close</button>
     </div>
@@ -8,21 +8,42 @@
   <ion-content ng-controller='modalController'>
     <form>
       <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Email</span>
-          <input type="email" ng-model="loginData.email">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Bill Type
+          </div>
+          <select>
+            <option>Blue</option>
+            <option selected>Green</option>
+            <option>Red</option>
+          </select>
         </label>
         <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
+          <span class="input-label">Bill Amount</span>
+          <input type="text" ng-model="modalData.billAmount">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Bill Date</span>
+          <input type="date" ng-model="modalData.billDate">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Message</span>
+          <textarea ng-model="modalData.message" class="reminderMessage"></textarea>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Status
+          </div>
+          <select>
+            <option>Blue</option>
+            <option selected>Green</option>
+            <option>Red</option>
+          </select>
         </label>
         <label class="item">
-          <button class="button button-block button-positive" ng-click="doLogin()">Log in</button>
+          <button class="button button-block button-positive" ng-click="doLogin()">Save</button>
         </label>
       </div>
     </form>
-    <label class="item">
-      <button class="button button-block button-balanced" ng-click="doRegister()">Register</button>
-    </label>
   </ion-content>
 </ion-modal-view>

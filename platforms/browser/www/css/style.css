@@ -62,3 +62,17 @@ time.icon span
   padding-top: 20px;
   color: #2f2f2f;
 }
+
+.logout {
+	background-color: red;
+	color: white;
+}
+
+.reminderMessage {
+	resize: vertical; max-height: 100px; min-height: 100px;
+	text-align: right;
+}
+
+input[type=text],input[type=date], {
+	text-align: right;
+}
