@@ -12,37 +12,32 @@
           <div class="input-label">
             Bill Type
           </div>
-          <select>
-            <option>Doğalgaz</option>
-            <option selected>Su</option>
-            <option>İnternet</option>
-            <option>Telefon</option>
+          <select ng-model="modalData.bill_type">
+            <option ng-repeat="type in billTypes" value="{{type.value}}">{{type.name}}</option>
           </select>
         </label>
         <label class="item item-input">
           <span class="input-label">Bill Amount</span>
-          <input type="text" ng-model="modalData.billAmount">
+          <input type="text" ng-model="modalData.bill_amount">
         </label>
-        <label class="item" ion-datetime-picker ng-model="modalData.billDate">
+        <label class="item" ion-datetime-picker ng-model="modalData.bill_data">
             Bill Date
-            <label class="billDate">{{modalData.billDate| date: "yyyy-MM-dd H:mm"}}</label>
+            <label class="bill_data">{{modalData.bill_data| date: "dd-MMM-yyyy H:mm"}}</label>
         </label>
         <label class="item item-input">
           <span class="input-label">Message</span>
-          <textarea ng-model="modalData.message" class="reminderMessage"></textarea>
+          <textarea ng-model="modalData.bill_message" class="reminderMessage"></textarea>
         </label>
         <label class="item item-input item-select">
           <div class="input-label">
             Status
           </div>
-          <select>
-            <option>Yüksek</option>
-            <option>Orta</option>
-            <option selected>Normal</option>
+          <select ng-model="modalData.status">
+            <option ng-repeat="status in billStatus" value="{{status.value}}">{{status.name}}</option>
           </select>
         </label>
         <label class="item">
-          <button class="button button-block button-positive" ng-click="doLogin()">Save</button>
+          <button class="button button-block button-positive" ng-click="newReminder()">Save</button>
         </label>
       </div>
     </form>

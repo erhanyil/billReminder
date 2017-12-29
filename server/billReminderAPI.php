@@ -17,7 +17,9 @@ switch($request_method)
 		break;
 	case 'POST':
 		if ($KEY == 'getBills') $database->getBills();
-		else if ($KEY == 'getBillsA') $database->getBillsA();
+		else if ($KEY == 'newReminder') $database->newReminder();
+		else if ($KEY == 'updateReminder') $database->updateReminder();
+		else if ($KEY == 'deleteReminder') $database->deleteReminder();
 		break;
 	case 'PUT':
 		echo json_encode($data);

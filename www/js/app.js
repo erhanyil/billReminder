@@ -3,10 +3,14 @@ angular.module('starter', ['ionic', 'starter.controllers','ion-datetime-picker']
 .constant('API_URL', 'http://localhost/billReminder/server/billReminderAPI.php')
 //.constant('API_URL', 'http://stdiosoft.com/toDo/www/')
 
-.run(function($ionicPlatform, $rootScope, Modal ,Auth) {
+.run(function($ionicPlatform, $state, $rootScope, Modal ,Auth) {
 
   $rootScope.Modal = Modal;
   $rootScope.Auth = Auth;
+  $rootScope.state = $state;
+
+  $rootScope.billTypes = [{name:'Lütfen Seçiniz',value:0},{name:'Doğalgaz',value:1},{name:'Su',value:2},{name:'İnternet',value:3},{name:'Telefon',value:4}];
+  $rootScope.billStatus = [{name:'Lütfen Seçiniz',value:0},{name:'Yüksek',value:1},{name:'Orta',value:2},{name:'Normal',value:3}];
 
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -126,24 +130,58 @@ angular.module('starter', ['ionic', 'starter.controllers','ion-datetime-picker']
 
   var response = {}, request = [];
 
+  function clear() { response = {}, request = []; }
+
+  function returnValue(returnValue) {
+    clear();
+    return returnValue;
+  }
+
   return {
 
-    createNewItem: function(data){
-        request.push({data:data,key:'createNewItem'});
+    newReminder: function(data){
+        request.push({data: (data == undefined ? {} : data), key: arguments.callee.name});
         return $http.post(API_URL, request).success(function(response){
-          console.log("createNewItem",response);
+          returnValue(response);
         }).error(function(error) {
+          console.log("error",error);
+        }).catch(function(error) {
           console.log("error",error);
         });
     },
+
     getBills: function(data) {
-        request.push({data:data,key:'getBills'});
+        request.push({data: (data == undefined ? {} : data), key: arguments.callee.name});
         return $http.post(API_URL, request).success(function(response){
-          console.log("getBills",response);
+          returnValue(response);
         }).error(function(error) {
           console.log("error",error);
+        }).catch(function(error) {
+          console.log("error",error);
         });
-    }
+    },
+
+    deleteReminder: function(data){
+        request.push({data: (data == undefined ? {} : data), key: arguments.callee.name});
+        return $http.post(API_URL, request).success(function(response){
+          returnValue(response);
+        }).error(function(error) {
+          console.log("error",error);
+        }).catch(function(error) {
+          console.log("error",error);
+        });
+    },
+
+    updateReminder: function(data){
+        request.push({data: (data == undefined ? {} : data), key: arguments.callee.name});
+        return $http.post(API_URL, request).success(function(response){
+          returnValue(response);
+        }).error(function(error) {
+          console.log("error",error);
+        }).catch(function(error) {
+          console.log("error",error);
+        });
+    },
     
   };
 });
