@@ -1,4 +1,4 @@
-<ion-view view-title="Bill Reminder">
+<ion-view view-title="Ana Sayfa">
   <ion-content>
     <ion-list>
       <ion-item class="item item-avatar" ng-repeat="reminder in reminders" href="#/app/home/{{reminder.reminder_ID}}">
@@ -9,8 +9,8 @@
       	<h2>{{reminder.bill_message}}</h2>
         <p>{{reminder.bill_type_name}}</p>
         <span class="item-note">{{reminder.bill_data}}</span>
-      	<ion-option-button class="button-assertive" side="right" ng-click="deleteReminder(reminder.reminder_ID)">Delete</ion-option-button>
-    	  <ion-option-button class="button-positive" side="left" ng-click="edit(reminder.reminder_ID)">Edit</ion-option-button>
+      	<ion-option-button class="button-assertive" side="right" ng-click="deleteReminder(reminder.reminder_ID)">Sil</ion-option-button>
+    	  <ion-option-button class="button-positive" side="left" ng-click="edit(reminder.reminder_ID)">Düzenle</ion-option-button>
       </ion-item>
     </ion-list>
   </ion-content>

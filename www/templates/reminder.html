@@ -1,41 +1,39 @@
 <ion-view view-title="{{reminder.bill_message}}">
   <ion-content>
     <form>
-    	<fieldset ng-disabled="!editable">
 	      <div class="list">
 	        <label class="item item-input item-select">
 	          <div class="input-label">
-	            Bill Type
+	            Fatura Tipi
 	          </div>
-	          <select ng-model="reminder.bill_type">
-	            <option ng-repeat="type in billTypes" value="{{type.value}}">{{type.name}}</option>
+	          <select ng-model="reminder.bill_type" >
+	            <option ng-selected="reminder.bill_type == type.value" ng-repeat="type in billTypes" value="{{type.value}}" >{{type.name}}</option>
 	          </select>
 	        </label>
 	        <label class="item item-input">
-	          <span class="input-label">Bill Amount</span>
+	          <span class="input-label">Fatura Tutarı</span>
 	          <input type="text" ng-model="reminder.bill_amount">
 	        </label>
 	        <label class="item" ion-datetime-picker ng-model="reminder.bill_data">
-	            Bill Date
+	            Fatura Tarihi
 	            <label class="bill_data">{{reminder.bill_data| date: "dd-MMM-yyyy H:mm"}}</label>
 	        </label>
 	        <label class="item item-input">
-	          <span class="input-label">Message</span>
+	          <span class="input-label">Mesaj</span>
 	          <textarea ng-model="reminder.bill_message" class="reminderMessage"></textarea>
 	        </label>
 	        <label class="item item-input item-select">
 	          <div class="input-label">
-	            Status
+	            Durum
 	          </div>
 	          <select ng-model="reminder.status">
-	            <option ng-repeat="status in billStatus" value="{{status.value}}">{{status.name}}</option>
+	            <option ng-selected="reminder.status == status.value" ng-repeat="status in billStatus" value="{{status.value}}">{{status.name}}</option>
 	          </select>
 	        </label>
 	        <label class="item" ng-if="editable">
-	          <button class="button button-block button-positive" ng-click="newReminder()">Save</button>
+	          <button class="button button-block button-positive" ng-click="newReminder()">Kaydet</button>
 	        </label>
 	      </div>
-  		</fieldset>
     </form>
   </ion-content>
 </ion-view>

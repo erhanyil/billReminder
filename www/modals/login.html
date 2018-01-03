@@ -1,8 +1,8 @@
 <ion-modal-view>
   <ion-header-bar>
-    <h1 class="title">Login</h1>
+    <h1 class="title">Giriş Yap</h1>
     <div class="buttons">
-      <button class="button button-clear" ng-click="Modal.close()" style="color:#97999e">Close</button>
+      <button class="button button-clear" ng-click="Modal.close()" style="color:#97999e">Kapat</button>
     </div>
   </ion-header-bar>
   <ion-content ng-controller='modalController'>
@@ -13,16 +13,16 @@
           <input type="email" ng-model="modalData.email">
         </label>
         <label class="item item-input">
-          <span class="input-label">Password</span>
+          <span class="input-label">Parola</span>
           <input type="password" ng-model="modalData.password">
         </label>
         <label class="item">
-          <button class="button button-block button-positive" ng-click="doLogin()">Log in</button>
+          <button class="button button-block button-positive" ng-click="doLogin()">Giriş Yap</button>
         </label>
       </div>
     </form>
     <label class="item">
-      <button class="button button-block button-balanced" ng-click="Modal.open('register')">Register</button>
+      <button class="button button-block button-balanced" ng-click="Modal.open('register')">Kayıt Ol</button>
     </label>
   </ion-content>
 </ion-modal-view>

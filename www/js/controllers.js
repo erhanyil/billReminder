@@ -50,9 +50,9 @@ angular.module('starter.controllers', [])
 
   $scope.getBills = function(reminder_ID){
     API.getBills({reminder_ID:reminder_ID}).then(function(result) {
-      $scope.reminder = result.data;
+      $scope.reminder = result.data[0];
     });
-  }
+  };
   $scope.getBills($stateParams.reminderID);
 
   $scope.edit = function()
@@ -66,8 +66,8 @@ angular.module('starter.controllers', [])
 .controller('modalController', function($scope,$rootScope, $stateParams, API) {
 
   $scope.modalData = {};
-  $scope.modalData.bill_type = $$rootScope.billTypes[0].name;
-  $scope.modalData.status = $$rootScope.billStatus[0].name;
+  $scope.modalData.bill_type = $rootScope.billTypes[0].name;
+  $scope.modalData.status = $rootScope.billStatus[0].name;
 
   $scope.doLogin = function() {
     console.log($scope.modalData);

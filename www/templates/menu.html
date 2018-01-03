@@ -8,7 +8,7 @@
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
         <button class="button button-icon button-clear ion-compose" ng-click="Modal.open('reminder')" ng-hide="state.current.name == 'app.reminder'"></button>
-        <button class="button button-clear" ng-click="edit()" ng-show="state.current.name == 'app.reminder'">Edit</button>
+        <button class="button button-clear" ng-click="edit()" ng-show="state.current.name == 'app.reminder'">Düzenle</button>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
@@ -16,15 +16,15 @@
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Welcome</h1>
+      <h1 class="title">Hoşgeldin</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
         <ion-item menu-close ng-click="Modal.open('login')" class="ion-log-in">
-          Login
+          Giriş Yap
         </ion-item>
         <ion-item menu-close href="#/app/playlists">
-          Home
+          Ana Sayfa
         </ion-item>
         <!--ion-item menu-close href="#/app/search">
           Search
@@ -33,10 +33,10 @@
           Browse
         </ion-item-->
         <ion-item menu-close href="#/app/about">
-          About
+          Hakkında
         </ion-item>
         <ion-item menu-close ng-click="Auth.logout()" class="ion-log-out logout">
-          Logout
+          Çıkş
         </ion-item>
       </ion-list>
     </ion-content>

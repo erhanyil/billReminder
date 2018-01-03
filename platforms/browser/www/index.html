@@ -27,6 +27,7 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src='https://rawgit.com/katemihalikova/ion-datetime-picker/master/release/ion-datetime-picker.min.js'></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
@@ -37,7 +38,7 @@
     <script src="js/controllers.js"></script>
   </head>
 
-  <body ng-app="starter">
+  <body ng-app="starter" class="platform-browser platform-cordova platform-webview">
     <ion-nav-view></ion-nav-view>
   </body>
 </html>

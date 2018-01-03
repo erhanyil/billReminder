@@ -1,6 +1,6 @@
 angular.module('starter', ['ionic', 'starter.controllers','ion-datetime-picker'])
 
-.constant('API_URL', 'http://localhost/billReminder/server/billReminderAPI.php')
+.constant('API_URL', 'http://stdiosoft.com/billReminder/billReminderAPI.php')
 //.constant('API_URL', 'http://stdiosoft.com/toDo/www/')
 
 .run(function($ionicPlatform, $state, $rootScope, Modal ,Auth) {
