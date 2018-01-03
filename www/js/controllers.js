@@ -7,6 +7,24 @@ angular.module('starter.controllers', [])
   $scope.getBills = function(){
     API.getBills().then(function(result) {
       $scope.reminders = result.data;
+
+      for(var i = 0; i < $scope.reminders.length; i++) {
+        
+        if($scope.reminders[i].status == 1) {
+          $scope.reminders[i].strongColor = 'background-color: orange;box-shadow: 0 2px 0 orange;';
+        }else if($scope.reminders[i].status == 2) {
+          $scope.reminders[i].strongColor = 'background-color: green;box-shadow: 0 2px 0 green;';
+        }else if($scope.reminders[i].status == 3) {
+          $scope.reminders[i].strongColor = 'background-color: red;box-shadow: 0 2px 0 red;';
+        }
+
+        for (var k = 0; k< $rootScope.billTypes.length; k++) {
+          if($scope.reminders[i].bill_type == $rootScope.billTypes[k].value) {
+            $scope.reminders[i].bill_type_name = $rootScope.billTypes[k].name;
+          }
+        }
+      }
+
     });
   };
   $scope.getBills();
@@ -24,7 +42,6 @@ angular.module('starter.controllers', [])
       }
     });
   };
-
 })
 
 .controller('ReminderController', function($scope, $stateParams, API) {
@@ -42,7 +59,6 @@ angular.module('starter.controllers', [])
   {
     $scope.editable = true;
   }
-
 })
 
 .controller('SettingsCtrl', function($scope, $stateParams) {})

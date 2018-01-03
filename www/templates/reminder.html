@@ -1,39 +1,41 @@
 <ion-view view-title="{{reminder.bill_message}}">
   <ion-content>
     <form>
-      <div class="list">
-        <label class="item item-input item-select">
-          <div class="input-label">
-            Bill Type
-          </div>
-          <select ng-model="reminder.bill_type">
-            <option ng-repeat="type in billTypes" value="{{type.value}}">{{type.name}}</option>
-          </select>
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Bill Amount</span>
-          <input type="text" ng-model="reminder.bill_amount">
-        </label>
-        <label class="item" ion-datetime-picker ng-model="reminder.bill_data">
-            Bill Date
-            <label class="bill_data">{{reminder.bill_data| date: "dd-MMM-yyyy H:mm"}}</label>
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Message</span>
-          <textarea ng-model="reminder.bill_message" class="reminderMessage"></textarea>
-        </label>
-        <label class="item item-input item-select">
-          <div class="input-label">
-            Status
-          </div>
-          <select ng-model="reminder.status">
-            <option ng-repeat="status in billStatus" value="{{status.value}}">{{status.name}}</option>
-          </select>
-        </label>
-        <label class="item" ng-if="editable">
-          <button class="button button-block button-positive" ng-click="newReminder()">Save</button>
-        </label>
-      </div>
+    	<fieldset ng-disabled="!editable">
+	      <div class="list">
+	        <label class="item item-input item-select">
+	          <div class="input-label">
+	            Bill Type
+	          </div>
+	          <select ng-model="reminder.bill_type">
+	            <option ng-repeat="type in billTypes" value="{{type.value}}">{{type.name}}</option>
+	          </select>
+	        </label>
+	        <label class="item item-input">
+	          <span class="input-label">Bill Amount</span>
+	          <input type="text" ng-model="reminder.bill_amount">
+	        </label>
+	        <label class="item" ion-datetime-picker ng-model="reminder.bill_data">
+	            Bill Date
+	            <label class="bill_data">{{reminder.bill_data| date: "dd-MMM-yyyy H:mm"}}</label>
+	        </label>
+	        <label class="item item-input">
+	          <span class="input-label">Message</span>
+	          <textarea ng-model="reminder.bill_message" class="reminderMessage"></textarea>
+	        </label>
+	        <label class="item item-input item-select">
+	          <div class="input-label">
+	            Status
+	          </div>
+	          <select ng-model="reminder.status">
+	            <option ng-repeat="status in billStatus" value="{{status.value}}">{{status.name}}</option>
+	          </select>
+	        </label>
+	        <label class="item" ng-if="editable">
+	          <button class="button button-block button-positive" ng-click="newReminder()">Save</button>
+	        </label>
+	      </div>
+  		</fieldset>
     </form>
   </ion-content>
 </ion-view>

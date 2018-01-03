@@ -3,12 +3,12 @@
     <ion-list>
       <ion-item class="item item-avatar" ng-repeat="reminder in reminders" href="#/app/home/{{reminder.reminder_ID}}">
       	<time datetime="2014-09-20" class="icon">
-			<strong>Sep</strong>
+			<strong style="{{reminder.strongColor}}">Sep</strong>
 			<span>20</span>
 		</time>
       	<h2>{{reminder.bill_message}}</h2>
-        <p>{{reminder.bill_data}}</p>
-        <p>{{reminder.formatted_bill_data}}</p>
+        <p>{{reminder.bill_type_name}}</p>
+        <span class="item-note">{{reminder.bill_data}}</span>
       	<ion-option-button class="button-assertive" side="right" ng-click="deleteReminder(reminder.reminder_ID)">Delete</ion-option-button>
     	  <ion-option-button class="button-positive" side="left" ng-click="edit(reminder.reminder_ID)">Edit</ion-option-button>
       </ion-item>
